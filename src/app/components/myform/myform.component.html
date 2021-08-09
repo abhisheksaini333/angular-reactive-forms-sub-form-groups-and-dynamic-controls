@@ -1,0 +1,16 @@
+<div class="container mb-5 text-center">
+    <form [formGroup]="orderForm">
+        <input type="text" formControlName="customerName" placeholder="Name"/>
+        <br/>
+        <input type="text" formControlName="email" placeholder="email"/>
+        <div formArrayName="items" *ngFor="let item of f['controls']; let i = index">
+            <div [formGroupName]="i">
+                <input type="text" formControlName="name" placeholder="Item name"/>
+                <input type="text" formControlName="description" placeholder="Item description"/>
+                <input type="text" formControlName="price" placeholder="Item price"/>
+            </div>
+        </div>
+        <br/>
+        <button type="button" (click)="addItem()">Add Item</button>
+    </form>
+</div>
